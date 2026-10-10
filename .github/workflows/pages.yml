@@ -1,0 +1,42 @@
+name: Publish citizen site
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Verify artifact boundary
+        shell: python
+        run: |
+          from pathlib import Path
+          root = Path('public')
+          allowed = {'index.html', 'how.html', 'cases.html', 'words.html', 'about.html',
+                     'static/site.css', 'static/city-ledger.svg', '.nojekyll'}
+          actual = {p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file()}
+          assert actual == allowed, 'Unexpected or missing public file'
+          assert not any(p.is_symlink() for p in root.rglob('*')), 'Symlink rejected'
+          for page in root.glob('*.html'):
+              html = page.read_text(encoding='utf-8')
+              assert 'class="staging-bar"' not in html, 'Staging build rejected'
+              assert 'https://dowjang.github.io/taxthief/' in html, 'Wrong canonical URL'
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+      - uses: actions/deploy-pages@v4
+        id: deployment

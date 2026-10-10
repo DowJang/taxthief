@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 510" fill="none">
+<defs><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0v32" stroke="#24272e" stroke-width="1"/></pattern><radialGradient id="glow"><stop stop-color="#7d1827" stop-opacity=".3"/><stop offset="1" stop-color="#101216" stop-opacity="0"/></radialGradient></defs>
+<rect width="640" height="510" fill="#101216"/><rect width="640" height="510" fill="url(#grid)"/><circle cx="362" cy="253" r="245" fill="url(#glow)"/>
+<g stroke="#f04454" stroke-opacity=".22"><circle cx="371" cy="244" r="175"/><circle cx="371" cy="244" r="130"/><path d="M371 42v401M167 244h405" stroke-dasharray="4 7"/></g>
+<g fill="#191e26" stroke="#414958" stroke-width="2"><path d="M49 354V216h66v138M56 216l26-42 27 42M123 354V256h53v98M187 354V214h71v140M269 354V146h58v208M276 146l21-40 23 40M520 354V196h74v158"/></g>
+<g stroke="#596170" stroke-width="3"><path d="M67 244h30M67 270h30M67 296h30M201 240h41M201 267h41M201 294h41M285 178h25M285 205h25M538 226h39M538 254h39M538 282h39"/></g>
+<path d="m121 141 164 177 219-210M113 410l174-92 240 97" stroke="#f04454" stroke-width="2"/>
+<g transform="rotate(-7 284 303)"><rect x="174" y="172" width="243" height="272" fill="#0a0b0e" stroke="#545b66"/><rect x="164" y="160" width="243" height="272" fill="#d6d7d9"/><path d="M164 160h243v48H164z" fill="#292e37"/><text x="184" y="190" fill="#f0f0f1" font-family="monospace" font-size="15" letter-spacing="3">CONTRACT / 01</text><path d="M184 232h121M184 254h176M184 276h151" stroke="#626873" stroke-width="6"/><path d="M183 306h204M183 338h204M183 370h204M183 402h204M252 306v96M330 306v96" stroke="#a2a7af" stroke-width="2"/><path d="M268 355h99" stroke="#b92337" stroke-width="8"/><rect x="190" y="385" width="86" height="24" fill="#b92337"/><text x="201" y="402" fill="white" font-family="monospace" font-size="12" letter-spacing="2">EVIDENCE</text></g>
+<circle cx="389" cy="270" r="79" fill="#111319" fill-opacity=".94" stroke="#f04454" stroke-width="7"/><circle cx="389" cy="270" r="65" stroke="#6e2530" stroke-width="1"/><path d="m445 327 61 67" stroke="#f04454" stroke-width="17" stroke-linecap="square"/>
+<path d="M389 224v18M389 298v18M343 270h18M417 270h18" stroke="#f04454" stroke-width="2"/><text x="367" y="286" fill="#f3f3f4" font-family="sans-serif" font-size="46" font-weight="700">₩</text>
+<g fill="#101216" stroke="#f04454" stroke-width="2"><rect x="50" y="90" width="151" height="56"/><rect x="432" y="70" width="164" height="53"/><circle cx="121" cy="146" r="5" fill="#f04454"/><circle cx="503" cy="123" r="5" fill="#f04454"/><circle cx="116" cy="410" r="5" fill="#f04454"/></g>
+<text x="68" y="113" fill="#f04454" font-family="monospace" font-size="11" letter-spacing="2">PUBLIC RECORD</text><path d="M68 127h96" stroke="#a1a7b1" stroke-width="3"/>
+<text x="449" y="93" fill="#f04454" font-family="monospace" font-size="11" letter-spacing="2">TRACE / ACTIVE</text><path d="M449 108h115" stroke="#a1a7b1" stroke-width="3"/>
+<path d="M20 51V20h31M589 20h31v31M20 459v31h31M589 490h31v-31" stroke="#f04454" stroke-width="2"/>
+<text x="36" y="480" fill="#808896" font-family="monospace" font-size="10" letter-spacing="2">FOLLOW THE MONEY. VERIFY THE FACTS.</text>
+</svg>
