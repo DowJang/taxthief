@@ -221,3 +221,92 @@ main { padding-top:46px!important; }
   .case-summary { font-size:14px; }
   .ai-note p { font-size:13px; }
 }
+
+/* 2026-10-16 사례 상세 요약 페이지(cases/<번호>.html)와 목록 정리. */
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+nav a[aria-current] { color:var(--ink); text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:8px; }
+.status-badge { display:inline-block; max-width:100%; border:1px solid var(--accent); color:var(--accent); padding:3px 9px; font-size:12px; font-weight:700; line-height:1.5; white-space:normal; }
+.case-index .case-meta,.detail-head .case-meta { flex-wrap:wrap; justify-content:flex-end; gap:8px 12px; flex-shrink:1; min-width:0; white-space:normal; }
+.case-date { color:var(--muted); font-size:12px; font-variant-numeric:tabular-nums; }
+.case-date time { color:var(--ink); }
+.back-link { margin:0 0 22px; font-size:13px; }
+.back-link a { color:var(--muted); text-decoration:none; }
+.back-link a:hover { color:var(--accent); }
+.case-detail { --case-title-size:30px; max-width:900px; margin:0 auto; }
+.case-detail+.back-link { max-width:900px; margin:40px auto 0; }
+.detail-head { padding:32px 34px; background:#111113; border:1px solid var(--line); }
+.detail-head h1 { font-size:var(--case-title-size); font-weight:800; line-height:1.4; margin:20px 0 18px; }
+.detail-head .case-money { margin:0; }
+.detail-section { margin:44px 0 0; }
+.detail-section h2 { font-size:22px; margin:0 0 16px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+.detail-section h3 { font-size:17px; margin:26px 0 10px; }
+.detail-section p { font-size:15px; }
+.section-note { font-size:12px!important; color:var(--muted); margin-top:10px; }
+.glance-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:0; }
+.glance-grid>div { background:var(--surface); border:1px solid var(--line); padding:20px 22px; }
+.glance-grid dt { font-size:13px; font-weight:700; color:var(--muted); margin-bottom:8px; }
+.glance-grid dd { margin:0; font-size:16px; line-height:1.75; color:var(--ink); }
+.glance-grid>div:last-child { border-color:var(--notice-line); }
+.fact-table { margin:0; border-top:1px solid var(--line); }
+.detail-section h2+.fact-table { border-top:0; }
+.fact-table>div { display:grid; grid-template-columns:170px minmax(0,1fr); gap:20px; padding:14px 0; border-bottom:1px solid var(--line); }
+.fact-table dt { color:var(--muted); font-size:14px; }
+.fact-table dd { margin:0; font-size:15px; min-width:0; }
+.fact-table small { display:block; color:var(--muted); font-size:12px; margin-top:4px; }
+.calc { list-style:none; padding:0; margin:0; background:var(--surface); border:1px solid var(--line); }
+.calc li { display:grid; grid-template-columns:28px minmax(0,1fr) auto; gap:12px; align-items:baseline; padding:14px 20px; border-bottom:1px solid var(--line); }
+.calc li:last-child { border-bottom:0; }
+.calc-op { color:var(--accent); font-size:18px; font-weight:800; text-align:center; }
+.calc-label { font-size:15px; min-width:0; }
+.calc-num { font-weight:700; font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; }
+.calc-total { background:var(--bg); }
+.calc-total .calc-label { font-weight:800; }
+.calc-total .calc-num { font-size:21px; font-weight:850; }
+.key-numbers { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin:16px 0 0; }
+.calc+.key-numbers { margin-top:16px; }
+.key-numbers>div { background:var(--surface); border:1px solid var(--line); padding:16px 18px; }
+.key-numbers dt { font-size:13px; color:var(--muted); }
+.key-numbers dd { margin:6px 0 0; font-size:20px; font-weight:800; }
+.caution { margin:20px 0 0; padding:18px 20px; background:var(--accent-soft); border:1px solid var(--notice-line); }
+.caution strong { display:block; font-size:14px; margin-bottom:6px; }
+.caution p { margin:0; font-size:14px; color:#c5c5cb; }
+.quote { margin:0 0 18px; }
+.quote blockquote { margin:0; padding:16px 20px; background:var(--surface); border-left:3px solid var(--accent); font-size:16px; line-height:1.8; }
+.quote figcaption { margin-top:8px; font-size:12px; color:var(--muted); }
+.two-col { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 32px; }
+.plain-list { margin:0; padding-left:20px; }
+.plain-list li { margin:0 0 10px; font-size:15px; line-height:1.75; }
+.plain-list li::marker { color:var(--accent); }
+.revision-list { list-style:none; padding:0; }
+.revision-list time { margin-right:8px; color:var(--muted); font-variant-numeric:tabular-nums; }
+.evidence-table { width:100%; border-collapse:collapse; table-layout:fixed; font-size:14px; }
+.evidence-table th { padding:8px 10px 8px 0; border-bottom:1px solid var(--line); color:var(--muted); font-size:12px; font-weight:700; text-align:left; }
+.evidence-table td { padding:12px 10px 12px 0; border-bottom:1px solid var(--line); vertical-align:top; }
+.evidence-table th:nth-child(1) { width:92px; }
+.evidence-table th:nth-child(2) { width:118px; }
+.tech { margin-top:20px; padding:16px 0; border-top:1px solid var(--line); }
+.tech summary { color:var(--muted); font-size:13px; }
+.hash-list { margin:12px 0 0; }
+.hash-list>div { padding:8px 0; }
+.hash-list dt { color:var(--muted); font-size:12px; }
+.hash-list dd { margin:2px 0 0; }
+.hash-list code { font-size:12px; word-break:break-all; overflow-wrap:anywhere; }
+.case-detail .ai-note { margin:0; padding:20px 22px; background:var(--surface); border:1px solid var(--line); }
+.case-detail .ai-note p.small { margin-top:10px; font-size:12px; color:var(--muted); }
+.case-detail .press-action { margin-top:52px; }
+.case-detail .comments h2 { font-size:21px; margin:20px 0 8px; }
+@media(max-width:650px) {
+  .case-detail { --case-title-size:23px; }
+  .detail-head { padding:23px 20px; }
+  .detail-section { margin-top:36px; }
+  .detail-section h2 { font-size:20px; }
+  .glance-grid,.two-col { grid-template-columns:1fr; }
+  .glance-grid>div { padding:16px 18px; }
+  .fact-table>div { grid-template-columns:1fr; gap:2px; padding:12px 0; }
+  .calc li { grid-template-columns:22px minmax(0,1fr); gap:4px 10px; padding:12px 14px; }
+  .calc-num { grid-column:2; text-align:left; }
+  .calc-total .calc-num { font-size:19px; }
+  .evidence-table th:nth-child(1) { width:64px; }
+  .evidence-table th:nth-child(2) { width:72px; }
+  .quote blockquote { padding:14px 16px; font-size:15px; }
+}

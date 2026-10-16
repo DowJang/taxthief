@@ -1,17 +1,19 @@
 "use strict";
 const api = "https://taxthief-api.dio0104.workers.dev";
+// 옛 주소 cases.html#SFF-2026-A010 → 새 상세 페이지 cases/SFF-2026-A010.html.
+// 목록에 실제로 있는 사례만 이동한다. JS가 없으면 목록의 해당 항목으로 스크롤된다.
+function followOldCaseLink() {
+  const match = location.hash.match(/^#(SFF-\d{4}-A\d{3})$/);
+  const item = match && document.getElementById(match[1]);
+  if (item && item.closest(".case-index") && /^cases\/SFF-\d{4}-A\d{3}\.html$/.test(item.dataset.detail || "")) {
+    location.replace(item.dataset.detail);
+  }
+}
 async function request(path, options = {}) {
   const response = await fetch(api + path, { ...options, headers: { "Content-Type": "application/json" } });
   const result = await response.json();
   if (!response.ok) throw new Error(result.message || "요청을 처리하지 못했습니다. 잠시 후 다시 시도해주세요.");
   return result;
-}
-function selectedCases() {
-  const id = location.hash.slice(1);
-  const target = document.getElementById(id);
-  const valid = target && target.classList.contains("case-card");
-  document.querySelectorAll(".detail-list .case-card").forEach(card => { card.hidden = Boolean(valid && card !== target); });
-  document.querySelectorAll(".comments").forEach(section => { if (!section.closest("[hidden]")) loadComments(section); });
 }
 async function loadComments(section) {
   const list = section.querySelector(".comment-list");
@@ -43,6 +45,7 @@ for (const section of document.querySelectorAll(".comments")) {
     } catch (error) { status.textContent = error.message; }
     finally { button.disabled = false; }
   });
+  loadComments(section);
 }
 for (const button of document.querySelectorAll(".press-button")) {
   button.addEventListener("click", async () => {
@@ -56,5 +59,5 @@ for (const button of document.querySelectorAll(".press-button")) {
     finally { button.disabled = false; }
   });
 }
-addEventListener("hashchange", selectedCases);
-selectedCases();
+addEventListener("hashchange", followOldCaseLink);
+followOldCaseLink();

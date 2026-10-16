@@ -23,17 +23,27 @@ jobs:
       - name: Verify artifact boundary
         shell: python
         run: |
+          import re
           from pathlib import Path
           root = Path('public')
-          allowed = {'index.html', 'how.html', 'cases.html', 'words.html', 'about.html',
-                     'static/site.css', 'static/cases.js', '.nojekyll'}
-          actual = {p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file()}
-          assert actual == allowed, 'Unexpected or missing public file'
+          base = 'https://dowjang.github.io/taxthief/'
+          fixed = {'index.html', 'how.html', 'cases.html', 'words.html', 'about.html',
+                   'static/site.css', 'static/cases.js', '.nojekyll'}
+          assert not root.is_symlink(), 'Symlink rejected'
           assert not any(p.is_symlink() for p in root.rglob('*')), 'Symlink rejected'
-          for page in root.glob('*.html'):
+          actual = {p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file()}
+          case_pages = {n for n in actual if re.fullmatch(r'cases/SFF-\d{4}-A\d{3}\.html', n)}
+          assert actual == fixed | case_pages, 'Unexpected or missing public file'
+          listing = (root / 'cases.html').read_text(encoding='utf-8')
+          linked = set(re.findall(r'href="(cases/SFF-\d{4}-A\d{3}\.html)"', listing))
+          assert linked == case_pages, 'Case pages must match the case list'
+          for page in root.rglob('*.html'):
               html = page.read_text(encoding='utf-8')
+              name = page.relative_to(root).as_posix()
+              canonical = base + ('' if name == 'index.html' else name)
               assert 'class="staging-bar"' not in html, 'Staging build rejected'
-              assert 'https://dowjang.github.io/taxthief/' in html, 'Wrong canonical URL'
+              assert 'content="noindex, nofollow"' not in html, 'Staging build rejected'
+              assert f'<link rel="canonical" href="{canonical}">' in html, 'Wrong canonical URL'
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
