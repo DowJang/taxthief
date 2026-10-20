@@ -28,7 +28,7 @@ jobs:
           root = Path('public')
           base = 'https://dowjang.github.io/taxthief/'
           fixed = {'index.html', 'how.html', 'cases.html', 'words.html', 'about.html',
-                   'static/site.css', 'static/cases.js', '.nojekyll'}
+                   'static/site.css', 'static/cases.js', 'static/feedback.js', '.nojekyll'}
           assert not root.is_symlink(), 'Symlink rejected'
           assert not any(p.is_symlink() for p in root.rglob('*')), 'Symlink rejected'
           actual = {p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file()}

@@ -30,24 +30,32 @@
   </div>
 </header>
 <main id="main" class="wrap">
-<p class="eyebrow">운영과 정정</p><h1>누가 만들고 있나요?</h1><p class="lead">AFTERGALE에서 진행하는 서울시 공개 재정자료 조사 프로젝트입니다.</p>
-<div class="method-grid"><article class="method-card"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-<path d="M14 3H5v18h14V8zM14 3v5h5M8 12h8M8 16h6"/>
-</svg><h2>지금 하는 일</h2><p>공개 계약 기록을 모으고, 같은 계산을 누구나 다시 할 수 있도록 근거를 정리하고 있습니다. 현재 공개한 조사 사례는 사례 목록에서 확인할 수 있습니다.</p></article><article class="method-card"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-<circle cx="9" cy="7" r="3"/><path d="M2 21v-3a7 7 0 0 1 14 0v3M17 4a3 3 0 0 1 0 6M20 21v-3a7 7 0 0 0-3-6"/>
-</svg><h2>운영 정보</h2><p>운영 비용의 출처와 정당·기관·업체와의 이해관계는 운영자 확인 후 이 페이지에 추가합니다. 확인하지 않은 내용을 대신 단정하지 않습니다.</p></article></div>
-<h2 id="fix">틀린 곳을 발견했다면</h2><p>페이지 주소, 확인할 부분, 근거 자료를 보내 주세요. 정정 요청과 반론을 검토하고 고친 날짜와 이유를 남깁니다.</p><a class="button" href="mailto:feedback@aftergale.com?subject=%EC%84%B8%EA%B8%88%EB%8F%84%EB%91%91%20%EC%A0%95%EC%A0%95%20%EC%9A%94%EC%B2%AD"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-<path d="M14 3H5v18h14V8zM14 3v5h5M8 12h8M8 16h6"/>
-</svg> 정정·반론 보내기</a>
-<p class="small muted" style="margin-top:18px">기존 AFTERGALE 연락 경로를 사용합니다. 민감한 개인정보는 보내지 마세요.</p>
+<h1>만든 사람</h1>
+<p class="lead">익명의 1인이 AI를 통해 폭넓은 자료조사와 분석작업을 중입니다.</p>
+<p>웹사이트 및 조사에 대한 의견이 있다면 아래를 통해 연락주십오.</p>
+<button class="button feedback-open" id="fix" type="button" aria-haspopup="dialog" aria-controls="feedback-dialog"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/>
+</svg> 의견보내기</button>
+<dialog id="feedback-dialog" aria-labelledby="feedback-title">
+  <form id="feedback-form">
+    <div class="feedback-heading"><h2 id="feedback-title">의견보내기</h2><button class="feedback-close" type="button" aria-label="닫기">×</button></div>
+    <label class="sr-only" for="feedback-body">의견 내용</label>
+    <textarea id="feedback-body" name="body" rows="8" required placeholder="의견을 자유롭게 적어 주세요."></textarea>
+    <input class="feedback-trap" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="feedback-count" aria-live="off">0 / 2000</div>
+    <p class="feedback-status" role="status" aria-live="polite"></p>
+    <div class="feedback-actions"><button class="button" type="submit" disabled>보내기</button></div>
+  </form>
+</dialog>
+<noscript><p>의견보내기를 사용하려면 자바스크립트를 켜 주세요.</p></noscript>
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <p><a href="index.html">세금도둑 홈</a> · <a href="about.html#fix">정정 요청</a></p>
+    <p><a href="index.html">세금도둑 홈</a> · <a href="about.html#fix">의견보내기</a></p>
     <p>기록을 추적하고, 근거로 책임을 묻습니다.</p>
     <p class="site-contact">예산·언론 관계자 문의·인터뷰 요청: <span class="contact-email">dow8756@gmail.com</span></p>
-    <p class="muted">마지막 갱신 2026-10-19</p>
+    <p class="muted">마지막 갱신 2026-10-20</p>
   </div>
 </footer>
-</body>
+<script src="static/feedback.js" defer></script></body>
 </html>
