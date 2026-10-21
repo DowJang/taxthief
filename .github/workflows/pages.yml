@@ -27,7 +27,7 @@ jobs:
           from pathlib import Path
           root = Path('public')
           base = 'https://dowjang.github.io/taxthief/'
-          fixed = {'index.html', 'how.html', 'cases.html', 'words.html', 'about.html',
+          fixed = {'index.html', 'how.html', 'cases.html', 'research.html', 'words.html', 'about.html',
                    'static/site.css', 'static/cases.js', 'static/feedback.js', '.nojekyll'}
           assert not root.is_symlink(), 'Symlink rejected'
           assert not any(p.is_symlink() for p in root.rglob('*')), 'Symlink rejected'

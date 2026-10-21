@@ -1,5 +1,35 @@
 "use strict";
 const api = "https://taxthief-api.dio0104.workers.dev";
+// 원문 순서(금액 내림차순)를 유지하며 15개씩 펼친다. JS가 없으면 전체 목록이 보인다.
+for (const list of document.querySelectorAll("[data-page-size]")) {
+  const items = Array.from(list.children);
+  const pager = list.nextElementSibling;
+  if (!pager || !pager.classList.contains("case-pagination")) continue;
+  const button = pager.querySelector(".case-more");
+  const count = pager.querySelector(".case-more-count");
+  const status = pager.querySelector(".case-page-status");
+  const size = 15;
+  let visible = Math.min(size, items.length);
+  const render = () => {
+    items.forEach((item, index) => { item.hidden = index >= visible; });
+    status.textContent = `전체 ${items.length}건 중 ${visible}건 표시`;
+    count.textContent = `(${Math.min(size, items.length - visible)}개)`;
+    button.hidden = visible >= items.length;
+    button.setAttribute("aria-controls", list.id);
+  };
+  if (items.length > size) {
+    pager.hidden = false;
+    render();
+    button.addEventListener("click", () => {
+      const firstNew = items[visible];
+      visible = Math.min(visible + size, items.length);
+      render();
+      // 마지막 묶음에서 버튼이 숨겨져도 키보드 초점은 새 사례로 이어진다.
+      const link = firstNew && firstNew.querySelector("h2 a, a");
+      if (link) link.focus({ preventScroll: true });
+    });
+  }
+}
 // 옛 주소 cases.html#SFF-2026-A010 → 새 상세 페이지 cases/SFF-2026-A010.html.
 // 목록에 실제로 있는 사례만 이동한다. JS가 없으면 목록의 해당 항목으로 스크롤된다.
 function followOldCaseLink() {
