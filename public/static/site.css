@@ -18,10 +18,10 @@
   --accent-soft:#1b1b16; --notice-bg:#141417; --notice-line:#494530;
   --radius:0; --maxw:1120px; color-scheme:dark;
 }
-/* 1120px 본문 + 양쪽 (24px 간격 + 160px 광고) + 바깥 여백 12px씩 = 1512px. */
+/* 1120px 본문 + 양쪽 (24px 간격 + 160px 광고) + 바깥 여백 12px씩 = 1512px. 스크롤바 여유를 더해 화면1536px부터 표시. */
 .ad-rail { display:none; }
-@media (min-width:1512px) and (min-height:820px) {
-  .ad-rail { position:fixed; top:180px; width:160px; height:600px; border:1px solid var(--muted); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; color:var(--muted); background:var(--bg); font-size:13px; }
+@media (min-width:1536px) and (min-height:820px) {
+  .ad-rail { position:fixed; top:180px; width:160px; height:600px; outline:1px solid var(--muted); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; color:var(--muted); background:var(--bg); font-size:13px; }
   .ad-rail strong { font-size:22px; font-variant-numeric:tabular-nums; color:var(--ink); }
   .ad-rail-left { left:calc(50% - 744px); }
   .ad-rail-right { right:calc(50% - 744px); }
