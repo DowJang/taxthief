@@ -84,7 +84,7 @@ for (const button of document.querySelectorAll(".press-button")) {
     status.textContent = "전송 상태를 확인하고 있습니다…";
     try {
       const result = await request(`/cases/${button.dataset.case}/press`, { method: "POST", body: "{}" });
-      status.textContent = result.sent === 10 ? "10개 주요 언론사에 해당 사항을 메일로 보냈습니다" : result.message;
+      status.textContent = result.message;
     } catch (error) { status.textContent = error.message; }
     finally { button.disabled = false; }
   });

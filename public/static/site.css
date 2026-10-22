@@ -18,6 +18,21 @@
   --accent-soft:#1b1b16; --notice-bg:#141417; --notice-line:#494530;
   --radius:0; --maxw:1120px; color-scheme:dark;
 }
+/* 1120px 본문 + 양쪽 (24px 간격 + 160px 광고) + 바깥 여백 12px씩 = 1512px. */
+.ad-rail { display:none; }
+@media (min-width:1512px) and (min-height:820px) {
+  .ad-rail { position:fixed; top:180px; width:160px; height:600px; border:1px solid var(--muted); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; color:var(--muted); background:var(--bg); font-size:13px; }
+  .ad-rail strong { font-size:22px; font-variant-numeric:tabular-nums; color:var(--ink); }
+  .ad-rail-left { left:calc(50% - 744px); }
+  .ad-rail-right { right:calc(50% - 744px); }
+}
+@media print { .ad-rail { display:none; } }
+.press-directory { margin-top:56px; }
+.press-directory-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; padding:0; list-style:none; }
+.press-directory-list li { padding:20px; border:1px solid var(--line); overflow-wrap:anywhere; }
+.press-directory-list h3 { margin-top:0; }
+.press-directory-list p { margin-bottom:8px; font-size:13px; }
+@media(max-width:650px) { .press-directory-list { grid-template-columns:1fr; } }
 *,*::before,*::after { box-sizing:border-box; }
 html { -webkit-text-size-adjust:100%; }
 body { margin:0; background:var(--bg); color:var(--ink); font:600 16px/1.7 "Pretendard",system-ui,-apple-system,"Malgun Gothic",sans-serif; word-break:keep-all; overflow-wrap:anywhere; -webkit-font-smoothing:antialiased; }
